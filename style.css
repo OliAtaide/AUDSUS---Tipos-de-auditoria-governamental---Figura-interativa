@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Jost", sans-serif;
+}
+
+main {
+    margin: 48px auto;
+}
+
+th,
+td {
+    background-color: #D0E5F1 !important;
+}
+
+.table-container {
+    background-color: #D0E5F1;
+    border-radius: 8px;
+    padding: 24px;
+    margin: 32px 0;
+}
+
+table {
+    margin: 0 !important;
+}
+
+textarea {
+    border: 1px solid #0B486B !important;
+    resize: none;
+    height: 120px;
+}
+
+th:first-child {
+    border-right: 1px solid #0B486B;
+}
+
+th:first-child {
+    width: 25%;
+}
+
+tbody th {
+    padding-bottom: 24px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+thead th {
+    border-bottom: 1px solid #0B486B;
+    font-size: 26px;
+}
+
+
+tr:not(:first-child):not(:last-child) td {
+    padding: 12px 24px !important;
+    padding-right: 0 !important;
+}
+
+td {
+    padding: 24px !important;
+    padding-right: 0 !important;
+}
+
+tr:first-child td {
+    padding-bottom: 12px !important;
+}
+
+tr:last-child td {
+    padding-top: 12px !important;
+    padding-bottom: 0 !important;
+}
+
+body {
+    background-color: #F7F9FC;
+}
+
+.navbar {
+    color: #5C6471;
+}
+
+.titulo {
+    color: #5C6471;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+p {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+footer {
+    background-color: #F0F0F0;
+    padding: 24px;
+}
+
+button{
+    padding: 8px 16px !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    background-color: #167CBA !important;
+}
