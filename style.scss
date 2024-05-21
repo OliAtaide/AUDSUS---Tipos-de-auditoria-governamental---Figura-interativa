@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+    font-family: "Jost", sans-serif;
+}
+
+main {
+    margin: 48px auto;
+}
+
+th,
+td {
+    background-color: #d0e5f1 !important;
+}
+
+.table-container {
+    background-color: #d0e5f1;
+    border-radius: 8px;
+    padding: 24px;
+    margin: 32px 0;
+}
+
+table {
+    margin: 0 !important;
+}
+
+textarea {
+    border: 1px solid #0b486b !important;
+    resize: none;
+    height: 120px;
+}
+
+th:first-child {
+    border-right: 1px solid #0b486b;
+}
+
+th:first-child {
+    width: 25%;
+}
+
+tbody th {
+    padding-bottom: 24px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+thead th {
+    border-bottom: 1px solid #0b486b;
+    font-size: 26px;
+}
+
+tr:not(:first-child):not(:last-child) td {
+    padding: 12px 24px !important;
+    padding-right: 0 !important;
+}
+
+td {
+    padding: 24px !important;
+    padding-right: 0 !important;
+}
+
+tr:first-child td {
+    padding-bottom: 12px !important;
+}
+
+tr:last-child td {
+    padding-top: 12px !important;
+    padding-bottom: 0 !important;
+}
+
+body {
+    background-color: #f7f9fc;
+}
+
+.navbar {
+    color: #5c6471;
+}
+
+.titulo {
+    color: #5c6471;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+p {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+footer {
+    background-color: #f0f0f0;
+    padding: 24px;
+}
+
+.btn-primary {
+    padding: 8px 16px !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    background-color: #167cba !important;
+}
+
+#rightModal,
+#wrongModal {
+    .modal-header {
+        font-weight: 600;
+        color: white;
+    }
+
+    .modal-content {
+        border: 1px solid #ccc;
+    }
+
+    .modal-title {
+        font-size: 26px !important;
+    }
+
+    .modal-body {
+        font-size: 18px;
+    }
+
+    .btn-close {
+        filter: invert(100%);
+    }
+
+    .modal-title,
+    .btn-primary {
+        font-weight: 500 !important;
+    }
+}
+
+#rightModal {
+    .modal-header {
+        background-color: #178545;
+    }
+
+    .btn-primary {
+        background-color: #178545 !important;
+    }
+}
+
+#wrongModal {
+    .modal-header {
+        background-color: #DC3545;
+    }
+
+    .btn-primary {
+        background-color: #DC3545 !important;
+    }
+}
