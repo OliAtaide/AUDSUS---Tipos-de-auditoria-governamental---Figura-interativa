@@ -41,17 +41,27 @@ function printRows() {
 
 printRows();
 
-/*
+function allRight() {
+  let isAlright = true;
+  $("textarea").each(function (i, v) {
+    if ($(v).val() == respotas[i]) {
+      $(v).removeClass("wrong");
+      $(v).addClass("right");
+    } else {
+      isAlright = false;
+      $(v).removeClass("right");
+      $(v).addClass("wrong");
+    }
+  });
+  return isAlright;
+}
 
-$(document).on("change", "textarea", function () {
-  const index = $(this).data("index");
-  console.log($(this).val() == respotas[index]);
-  if ($(this).val() == respotas[index]) {
-    $(this).removeClass("wrong");
-    $(this).addClass("right");
-  } else {
-    $(this).removeClass("right");
-    $(this).addClass("wrong");
+$("#verificar").click(function () {
+  let isAlright = allRight();
+  if(isAlright){
+    $('#rightModal').modal('show');
+  }
+  else{
+    $('#wrongModal').modal('show');
   }
 });
-*/

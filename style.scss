@@ -28,6 +28,15 @@ textarea {
     border: 1px solid #0b486b !important;
     resize: none;
     height: 120px;
+
+    &.right {
+        border-color: #178545 !important;
+    }
+
+    &.wrong {
+        border-color: #dc3545 !important;
+        color: #dc3545 !important;
+    }
 }
 
 th:first-child {
@@ -145,10 +154,10 @@ footer {
 
 #wrongModal {
     .modal-header {
-        background-color: #DC3545;
+        background-color: #dc3545;
     }
 
     .btn-primary {
-        background-color: #DC3545 !important;
+        background-color: #dc3545 !important;
     }
 }

@@ -28,6 +28,13 @@ textarea {
   resize: none;
   height: 120px;
 }
+textarea.right {
+  border-color: #178545 !important;
+}
+textarea.wrong {
+  border-color: #dc3545 !important;
+  color: #dc3545 !important;
+}
 
 th:first-child {
   border-right: 1px solid #0b486b;
@@ -139,8 +146,8 @@ footer {
 }
 
 #wrongModal .modal-header {
-  background-color: #DC3545;
+  background-color: #dc3545;
 }
 #wrongModal .btn-primary {
-  background-color: #DC3545 !important;
+  background-color: #dc3545 !important;
 }/*# sourceMappingURL=style.css.map */
