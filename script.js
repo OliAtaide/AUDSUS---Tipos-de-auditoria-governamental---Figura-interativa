@@ -9,7 +9,7 @@ var rows = [
   "Efeito",
 ];
 
-var respotas = [
+var labels = [
   "São os problemas, as dificuldades ou as demandas do conjunto da sociedade ou de alguns grupos específicos reconhecidos como destinatários legítimos de bens e serviços públicos, que a intervenção pública procura resolver ou superar.",
   "São as enunciações iniciais dos efeitos que se pretendem obter com a intervenção.",
   "São os bens e serviços empregados na produção de outros bens e serviços que serão entregues a outras organizações ou diretamente ao público alvo de uma intervenção.",
@@ -21,47 +21,50 @@ var respotas = [
 ];
 
 function printRows() {
+  let btns = ["Dimensões: "];
   let tr = [];
 
-  rows.forEach(function (v, i) {
+  labels.forEach(function (v, i) {
+    btns.push(
+      `
+        <div class="btn btn-dimension"> ${rows[i]} </div>
+      `
+    );
     tr.push(
       `
-            <tr>
-                <th scope="row">${v}</th>
-                <td>
-                    <textarea name="" id="" class="form-control" data-index="${i}"></textarea>
-                </td>
-            </tr>
-            `
+        <tr>
+          <th scope="row">
+            <div class="dimension-slot">
+            </div>
+          </th>
+          <td>
+            <div class="meaning-label">
+              ${v}
+            </div>
+          </td>
+        </tr>
+      `
     );
   });
 
+  $(".dimensions").html(btns);
+
   $("tbody").html(tr);
+  $(".btn-dimension").draggable();
+
+  $(".dimension-slot").droppable({
+    accept: ".btn-dimension",
+    tolerance: "pointer",
+    drop: function (event, ui) {
+      let pos = $(this).offset();
+
+      ui.draggable.css({
+        position: 'absolute',
+        top: pos.top + "px",
+        left: pos.left + "px"
+    })
+    },
+  });
 }
 
 printRows();
-
-function allRight() {
-  let isAlright = true;
-  $("textarea").each(function (i, v) {
-    if ($(v).val() == respotas[i]) {
-      $(v).removeClass("wrong");
-      $(v).addClass("right");
-    } else {
-      isAlright = false;
-      $(v).removeClass("right");
-      $(v).addClass("wrong");
-    }
-  });
-  return isAlright;
-}
-
-$("#verificar").click(function () {
-  let isAlright = allRight();
-  if(isAlright){
-    $('#rightModal').modal('show');
-  }
-  else{
-    $('#wrongModal').modal('show');
-  }
-});
