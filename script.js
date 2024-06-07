@@ -21,24 +21,28 @@ var labels = [
 ];
 
 function printRows() {
-  let btns = ["Dimensões: "];
+  let btns = [];
   let tr = [];
 
   labels.forEach(function (v, i) {
     btns.push(
       `
-        <div class="btn btn-dimension"> ${rows[i]} </div>
+        <div class="btn-slot">
+          <div id="btn${i}" class="btn btn-dimension position-absolute" data-index="${i}">
+            ${rows[i]}
+          </div>
+        </div>
       `
     );
     tr.push(
       `
         <tr>
           <th scope="row">
-            <div class="dimension-slot">
+            <div id="slot${i}" class="dimension-slot" data-button="none" data-label="#label${i}" data-index="${i}">
             </div>
           </th>
           <td>
-            <div class="meaning-label">
+            <div class="meaning-label" id="label${i}">
               ${v}
             </div>
           </td>
@@ -47,7 +51,11 @@ function printRows() {
     );
   });
 
+  btns = btns.sort(() => Math.random() - 0.5);
+  console.log(btns);
+
   $(".dimensions").html(btns);
+  $(".dimensions").prepend("<span>Dimensões: </span>");
 
   $("tbody").html(tr);
   $(".btn-dimension").draggable();
@@ -56,14 +64,66 @@ function printRows() {
     accept: ".btn-dimension",
     tolerance: "pointer",
     drop: function (event, ui) {
+      if (!$(this).hasClass("dimension-slot-filled")) {
+        $(this).addClass("dimension-slot-filled");
+        ui.draggable.addClass("btn-dimension-filled");
+      }
       let pos = $(this).offset();
 
+      let id = ui.draggable.attr("id");
+
+      $(this).attr("data-button", "#" + id);
+
       ui.draggable.css({
-        position: 'absolute',
         top: pos.top + "px",
-        left: pos.left + "px"
-    })
+        left: pos.left + "px",
+      });
     },
+    out: function (event, ui) {
+      if ($(this).hasClass("dimension-slot-filled")) {
+        let drag_id = "#" + ui.draggable.attr("id");
+        let btn_id = $(this).data("button");
+        console.log(drag_id, btn_id);
+        if (drag_id == btn_id) {
+          $(this).removeClass("dimension-slot-filled");
+          ui.draggable.removeClass("btn-dimension-filled");
+        }
+      }
+    },
+  });
+
+  $("#verificar").click(function () {
+    let isComplete = $(".dimension-slot-filled").length == rows.length;
+
+    if (isComplete) {
+      let acertos = 0;
+
+      $(".dimension-slot-filled").each(function (i) {
+        let btn_id = $(this).data("button");
+
+        let btn_index = $(btn_id).data("index");
+        let slot_index = $(this).data("index");
+
+        let isCorrect = btn_index == slot_index;
+
+        console.log(btn_index, slot_index, isCorrect);
+
+        let slot_label = $($(this).data("label"));
+        if (isCorrect) {
+          slot_label.addClass("right");
+          acertos += 1;
+        } else {
+          slot_label.addClass("wrong");
+        }
+      });
+
+      
+      if (acertos == rows.length) {
+        $("#rightModal").modal("show");
+      } else {
+        $("#wrongModal").modal("show");
+      }
+    }
   });
 }
 

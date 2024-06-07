@@ -85,14 +85,21 @@ footer {
   background-color: #167cba !important;
 }
 
+#rightModal .modal-dialog,
+#wrongModal .modal-dialog {
+  max-width: 540px !important;
+}
 #rightModal .modal-header,
 #wrongModal .modal-header {
   font-weight: 600;
   color: white;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 #rightModal .modal-content,
 #wrongModal .modal-content {
   border: 1px solid #ccc;
+  border-radius: 4px;
 }
 #rightModal .modal-title,
 #wrongModal .modal-title {
@@ -127,22 +134,32 @@ footer {
   background-color: #dc3545 !important;
 }
 
-.dimension-slot {
-  border: 3px dashed #0B486B;
-  min-height: 60px;
+.dimension-slot,
+.btn-slot {
+  border: 3px dashed #0b486b;
+  height: 60px;
   width: 150px;
   border-radius: 4px;
+}
+
+.dimension-slot {
   margin: 24px auto;
 }
 
 .meaning-label {
-  border: 2px solid #0B486B;
+  border: 2px solid #0b486b;
   border-radius: 4px;
   min-height: 150px;
   padding: 16px;
   font-size: 18px;
   display: flex;
   align-items: center;
+}
+.meaning-label.right {
+  border-color: green !important;
+}
+.meaning-label.wrong {
+  border-color: red !important;
 }
 
 .dimensions {
@@ -151,14 +168,18 @@ footer {
   font-weight: 500;
 }
 
+.btn-slot {
+  margin-right: 12px;
+  margin-left: 12px;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
 .btn-dimension {
-  background-color: #00508A;
+  background-color: #00508a;
   color: white;
   font-weight: 500;
   font-size: 20px;
   padding: 16px;
   min-width: 150px;
-  margin-right: 12px;
-  margin-left: 12px;
-  margin-bottom: 24px;
 }/*# sourceMappingURL=style.css.map */
