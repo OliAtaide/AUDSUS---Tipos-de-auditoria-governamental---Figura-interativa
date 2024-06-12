@@ -4,8 +4,9 @@
     font-family: "Jost", sans-serif;
 }
 
-main {
-    margin: 48px auto;
+main .container{
+    padding-top: 48px;
+    padding-bottom: 48px;
 }
 
 table {
@@ -55,12 +56,13 @@ tr:last-child td {
     padding-bottom: 0 !important;
 }
 
-body {
-    background-color: #f7f9fc;
+main, th, td {
+    background-color: #F9F9F9 !important;
 }
 
-.navbar {
+header, footer {
     color: #5c6471;
+    background-color: #F7F9FC !important;
 }
 
 .titulo {
@@ -75,7 +77,6 @@ p {
 }
 
 footer {
-    background-color: #f0f0f0;
     padding: 24px;
 }
 
@@ -148,7 +149,6 @@ footer {
     width: 150px;
     border-radius: 4px;
 }
-
 .dimension-slot {
     margin: 24px auto;
 }
@@ -175,13 +175,23 @@ footer {
     gap: 24px;
     font-size: 18px;
     font-weight: 500;
+    margin-bottom: 2em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dimensions .label{
+    height: 60px;
+    display: inline-block;
+    width: unset;
+    display: flex;
+    align-items: center;
 }
 
 .btn-slot {
-    margin-right: 12px;
-    margin-left: 12px;
-    margin-bottom: 24px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-dimension {
@@ -191,4 +201,13 @@ footer {
     font-size: 20px;
     padding: 16px;
     min-width: 150px;
+
+    &:hover {
+        background-color: #cccccc;
+    }
+}
+
+#verificar{
+    margin-top: 1em;
+    background-color: #00508a !important;
 }

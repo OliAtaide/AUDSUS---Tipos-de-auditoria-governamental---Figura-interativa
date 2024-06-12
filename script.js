@@ -55,7 +55,7 @@ function printRows() {
   console.log(btns);
 
   $(".dimensions").html(btns);
-  $(".dimensions").prepend("<span>Dimensões: </span>");
+  $(".dimensions").prepend('<div class="label">Dimensões: </div>');
 
   $("tbody").html(tr);
   $(".btn-dimension").draggable();
